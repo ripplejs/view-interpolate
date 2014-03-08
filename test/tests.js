@@ -57,6 +57,26 @@ describe('view-interpolate', function(){
     done(false);
   });
 
+  it('should change delimiters', function () {
+    View.delimiters(/\<\%(.*?)\%\>/g);
+    View.on('created', function(){
+      this.set('foo', 'bar');
+    });
+    var view = new View();
+    assert( view.interpolate('<% foo %>') === "bar");
+  });
+
+  it('should add filters', function () {
+    View.filter('caps', function(val){
+      return val.toUpperCase();
+    });
+    View.on('created', function(){
+      this.set('foo', 'bar');
+    });
+    var view = new View();
+    assert( view.interpolate('{{foo | caps}}') === "BAR");
+  });
+
   describe('properties', function () {
     it('should not interpolate a string using properties', function(done){
       var view = new View({
