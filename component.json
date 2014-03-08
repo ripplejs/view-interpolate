@@ -10,7 +10,7 @@
   },
   "development": {
     "component/assert": "*",
-    "ripplejs/view": "props"
+    "ripplejs/view": "0.1.0"
   },
   "scripts": [
     "index.js"

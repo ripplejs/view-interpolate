@@ -83,7 +83,9 @@ module.exports = function(View){
       var data = {};
       attrs.forEach(function(attr){
         var value = self.get(attr);
-        if(value === undefined) throw new Error('Can\'t find interpolation property named "' + key + '"');
+        if(value === undefined) {
+          throw new Error('Can\'t find interpolation property named "' + attr + '"');
+        }
         data[attr] = value;
       });
       return interpolator.value(str, data);
