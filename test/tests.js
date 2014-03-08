@@ -34,6 +34,15 @@ describe('view-interpolate', function(){
     assert(two.hasFilter('foo'));
   });
 
+  it('should interpolate once', function(){
+    var view = View.create({
+      state: {
+        foo: 'bar'
+      }
+    });
+    assert(view.interpolate('{{foo}}') === 'bar');
+  });
+
   it('should throw an error if trying to interpolate with a property that does not exist', function(done){
     var view = new View();
     try {

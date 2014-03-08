@@ -72,7 +72,7 @@ module.exports = function(View){
     // If the string has no expressions, we can just return
     // the string one, since it never needs to change.
     if(this.hasInterpolation(str) === false) {
-      return callback(str);
+      return callback ? callback(str) : str;
     }
 
     // Get all of the properties used withing the string
@@ -91,16 +91,20 @@ module.exports = function(View){
       return interpolator.value(str, data);
     }
 
-    // Whenever any of the properties used in the
-    // expression changes, we render it again
-    attrs.map(function(attr){
-      return self.change(attr, function(){
-        callback(render());
+    if(callback) {
+      // Whenever any of the properties used in the
+      // expression changes, we render it again
+      attrs.map(function(attr){
+        return self.change(attr, function(){
+          callback(render());
+        });
       });
-    });
+      // Immediately render the string
+      callback(render());
+      return;
+    }
 
-    // Immediately render the string
-    callback(render());
+    return render();
   };
 
 };
