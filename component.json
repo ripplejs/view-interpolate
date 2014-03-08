@@ -1,0 +1,18 @@
+{
+  "name": "view-interpolate",
+  "repo": "",
+  "description": "Plugin for view to add interpolation",
+  "version": "0.0.1",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {
+    "ripplejs/interpolate": "0.2.1"
+  },
+  "development": {
+    "component/assert": "*",
+    "ripplejs/view": "props"
+  },
+  "scripts": [
+    "index.js"
+  ]
+}
