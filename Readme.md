@@ -1,13 +1,15 @@
 
 # view-interpolate
 
+[![Build Status](https://travis-ci.org/ripplejs/view-interpolate.png?branch=master)](https://travis-ci.org/ripplejs/view-interpolate)
+
   Plugin for view to add interpolation. This will allow views to interpolate expressions in strings using the view state. Whenever the state changes the string will be re-rendered.
 
 ## Installation
 
   Install with [component(1)](http://component.io):
 
-    $ component install ripples/view-interpolate
+    $ component install ripplejs/view-interpolate
 
 ## Usage
 
